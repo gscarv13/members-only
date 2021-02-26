@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-	root 'posts#index'
+  root 'posts#index'
 
   devise_for :users, controllers: { registrations: 'registrations' }
-  resources :posts, only: [:new, :create, :index]
+  resources :posts, only: %i[new create index]
 end

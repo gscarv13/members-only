@@ -1,27 +1,29 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-	before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index]
 
-	def index
-		@posts = Post.all
-	end
+  def index
+    @posts = Post.all
+  end
 
-	def new
-		@post = current_user.posts.build
-	end
+  def new
+    @post = current_user.posts.build
+  end
 
-	def create
-		@post = current_user.posts.build(post_params)
+  def create
+    @post = current_user.posts.build(post_params)
 
-		if @post.save
-			redirect_to root_path
-		else
-			render :new
-		end
-	end
+    if @post.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
 
-	private
+  private
 
-	def post_params
-		params.require(:post).permit(:title, :body)
-	end
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
 end
