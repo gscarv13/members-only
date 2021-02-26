@@ -1,12 +1,17 @@
-<h1>It works!</h1>
+<section class="section">
+  <div class="has-background-white container pt-0">
+  <h1 class="has-text-centered title is-2">Posts</h1>
 
-<% if user_signed_in? %>
-<%= link_to 'Log out', destroy_user_session_path, method: :delete%>
-<% end %>
-
-<br><br><br><br><br><br>
-
-<%= @posts.each do |p| %>
-  <%= p.title %>
-  <%= p.body %>
-<% end %>
+  <% @posts.each do |p| %>
+    <div class="media-content m-5 box">
+      <div class="content">
+        <strong class="title is-4"><%= p.title %></strong>
+        <p class="pt-2"><%= p.body %></p>
+        <% if user_signed_in? %>
+          <small>by: <%= p.user.username %></small>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
