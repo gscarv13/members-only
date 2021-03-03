@@ -1,0 +1,17 @@
+<section class="section">
+  <div class="has-background-white container pt-0">
+  <h1 class="has-text-centered title is-2">Posts</h1>
+
+  <% @posts.each do |p| %>
+    <div class="media-content m-5 box">
+      <div class="content">
+        <strong class="title is-4"><%= p.title %></strong>
+        <p class="pt-2"><%= p.body %></p>
+        <% if user_signed_in? %>
+          <small>by: <%= p.user.username %></small>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</section>
