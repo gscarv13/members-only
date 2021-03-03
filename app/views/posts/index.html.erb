@@ -7,9 +7,7 @@
       <div class="content">
         <strong class="title is-4"><%= p.title %></strong>
         <p class="pt-2"><%= p.body %></p>
-        <% if user_signed_in? %>
-          <small>by: <%= p.user.username %></small>
-        <% end %>
+        <small><%= user_logged(p.user) %></small>
       </div>
     </div>
     <% end %>
