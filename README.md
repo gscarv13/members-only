@@ -4,6 +4,8 @@
 
 > Simple website built with Rails using the devise gem to provide Authentication functionality
 
+![](image/scr.png)
+
 ## Built With
 
 - Ruby 3
